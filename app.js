@@ -38,6 +38,11 @@ if(isProduction){
   mongoose.set('debug', true);
 }
 
+require('./models/User');
+require('./models/Article');
+require('./models/Comment');
+require('./config/passport');
+
 app.use(require('./routes'));
 
 /// catch 404 and forward to error handler
