@@ -5,9 +5,9 @@ var User = mongoose.model('User');
 
 var ArticleSchema = new mongoose.Schema({
     slug: { type: String, lowercase: true, unique: true },
-    title: String,
-    description: String,
-    body: String,
+    title: String, required: [true, "can't be blank"],
+    description: String, required: [true, "can't be blank"],
+    body: String, required: [true, "can't be blank"],
     favoritesCount: { type: Number, default: 0 },
     tagList: [{ type: String }],    
     comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
