@@ -9,6 +9,7 @@ var auth = require('../auth');
 router.post('/', auth.required, function (req, res, next) {
     User.findById(req.payload.id).then(function (user) {
         if (!user) { return res.sendStatus(401); }
+        if (user.username != 'winston')  { return res.sendStatus(401); }
 
         var article = new Article(req.body.article);
 
