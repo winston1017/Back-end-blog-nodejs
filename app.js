@@ -8,13 +8,15 @@ var fs = require('fs'),
   cors = require('cors'),
   passport = require('passport'),
   errorhandler = require('errorhandler'),
-  mongoose = require('mongoose');
+  mongoose = require('mongoose'),
+  compression = require('compression');
 
 var isProduction = process.env.NODE_ENV === 'production';
 
 // Create global app object
 var app = express();
 
+app.use(compression());
 app.use(cors());
 
 // Normal express config defaults
